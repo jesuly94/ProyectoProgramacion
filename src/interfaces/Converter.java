@@ -67,7 +67,7 @@ public class Converter extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel(""); /* !!! Añadir imagen por otro metodo !!! */
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon(Converter.class.getResource("/imagenes/bitcoin icon.png")));//etiqueta donde añadimos imagenes de la moneda
+		lblNewLabel.setIcon(new ImageIcon(Converter.class.getResource("/imagenes/bitcoin-icon.png")));//etiqueta donde añadimos imagenes de la moneda
 		lblNewLabel.setBounds(10, 38, 126, 106);
 		contentPane.add(lblNewLabel);
 		
@@ -79,7 +79,7 @@ public class Converter extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setIcon(new ImageIcon(Converter.class.getResource("/imagenes/ethereum icon.png")));//etiqueta donde añadimos imagenes de la moneda
+		lblNewLabel_2.setIcon(new ImageIcon(Converter.class.getResource("/imagenes/ethereum-icon.png")));//etiqueta donde añadimos imagenes de la moneda
 		lblNewLabel_2.setBounds(10, 272, 126, 106);
 		contentPane.add(lblNewLabel_2);
 		

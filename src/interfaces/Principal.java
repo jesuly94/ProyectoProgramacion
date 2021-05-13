@@ -1,8 +1,8 @@
 package interfaces;
-
+import bbdd.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
+import beans.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -23,8 +23,12 @@ import javax.swing.JTextField;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import interfaces.Converter;
-import rsscalelabel.RSScaleLabel;
 import java.awt.TextField;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
+import java.awt.event.TextListener;
+import java.awt.event.TextEvent;
+
 public class Principal extends JFrame {
 
 	private JPanel contentPane;
@@ -36,6 +40,7 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Conexion.Conectar();
 					Principal frame = new Principal();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -60,18 +65,30 @@ public class Principal extends JFrame {
 		contentPane.setLayout(null);
 	// Aqui se crea el panel Frame principal donde vamos a meter el panel con la accion de empezar el programa.	
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.BLACK);
+		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 0, 583, 415);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		this.setLocationRelativeTo(null);
+		
+		
+		JButton btnRegister = new JButton("Sign Up");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnRegister.setForeground(Color.BLACK);
+		btnRegister.setBackground(SystemColor.activeCaption);
+		btnRegister.setBounds(242, 308, 103, 33);
+		panel.add(btnRegister);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("CONTRASE\u00D1A");
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1.setForeground(Color.BLACK);
 		lblNewLabel_1_1_1.setFont(new Font("Roboto", Font.BOLD, 12));
 		lblNewLabel_1_1_1.setBackground(SystemColor.activeCaption);
-		lblNewLabel_1_1_1.setBounds(166, 187, 77, 22);
+		lblNewLabel_1_1_1.setBounds(118, 181, 90, 28);
 		panel.add(lblNewLabel_1_1_1);
 		
 		//LIBRERIA PARA VER BIEN IMG
@@ -79,14 +96,14 @@ public class Principal extends JFrame {
 		
 		//FIN LIBRERIA
 		
-		JLabel lblNewLabel_1_1 = new JLabel("USUARIO");
+		JLabel lblNewLabel_1_1 = new JLabel("USER");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setForeground(Color.BLACK);
 		lblNewLabel_1_1.setFont(new Font("Roboto", Font.BOLD, 12));
 		lblNewLabel_1_1.setBackground(SystemColor.activeCaption);
-		lblNewLabel_1_1.setBounds(166, 125, 77, 22);
+		lblNewLabel_1_1.setBounds(118, 119, 90, 28);
 		panel.add(lblNewLabel_1_1);
-		JButton btnNewButton = new JButton("LOGIN");
+		JButton btnNewButton = new JButton("Sign In");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
@@ -100,20 +117,39 @@ public class Principal extends JFrame {
 		btnNewButton.setBackground(SystemColor.activeCaption);
 		btnNewButton.setIcon(null);
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setBounds(250, 252, 103, 33);
+		btnNewButton.setBounds(242, 249, 103, 33);
 		panel.add(btnNewButton);
 		this.setLocationRelativeTo(null);
 		
 		TextField textField_4 = new TextField();
-		textField_4.setFont(new Font("Calibri", Font.BOLD, 14));
-		textField_4.setBounds(265, 119, 126, 28);
+		textField_4.addTextListener(new TextListener() {
+			public void textValueChanged(TextEvent e) {
+				String user = textField_4.getText();
+				
+			}
+		});
+		textField_4.setFont(new Font("Roboto", Font.PLAIN, 12));
+		textField_4.setBounds(214, 119, 162, 28);
 		panel.add(textField_4);
 		
 		TextField textField_4_1 = new TextField();
-		textField_4_1.setFont(new Font("Calibri", Font.BOLD, 14));
-		textField_4_1.setBounds(265, 187, 126, 28);
+		textField_4_1.addTextListener(new TextListener() {
+			public void textValueChanged(TextEvent e) {
+				String password = textField_4_1.getText(); 
+			}
+		});
+		textField_4_1.setFont(new Font("Roboto", Font.PLAIN, 12));
+		textField_4_1.setBounds(214, 181, 162, 28);
 		panel.add(textField_4_1);
-		//rsscalelabel.RSScaleLabel.setScaleLabel(fondo, "/imagenes/tothemoon.jpg");
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/tothemoon.jpg")));
+		lblNewLabel.setLabelFor(panel);
+		lblNewLabel.setBounds(0, 0, 583, 415);
+		panel.add(lblNewLabel);
+		
+	
 	}
 }
 // Principal() --> es el frame principal donde empezariamos a editar

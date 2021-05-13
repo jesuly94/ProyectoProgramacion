@@ -7,6 +7,8 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="lib"/>
-	<classpathentry kind="lib" path="lib/RSScaleLabel.jar"/>
+	<classpathentry kind="src" path="bbdd"/>
+	<classpathentry kind="src" path="beans"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.15.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
