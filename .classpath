@@ -9,6 +9,7 @@
 	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="src" path="bbdd"/>
 	<classpathentry kind="src" path="beans"/>
+	<classpathentry kind="src" path="billetera"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.15.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
